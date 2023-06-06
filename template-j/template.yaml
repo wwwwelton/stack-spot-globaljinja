@@ -1,0 +1,27 @@
+name: template-j
+description: template usando jinja
+types:
+  - app-template
+inputs:
+  - label: Digite o nome da pasta
+    type: text
+    name: folder_name
+    default: folder_name
+  - label: Digite o nome do arquivo
+    type: text
+    name: file_name
+    default: file_name
+  - label: Digite o nome da pasta dinamica
+    type: text
+    name: folder_name_dynamic
+    default: folder_name_dynamic
+  - label: Digite o nome da pasta do plugin
+    type: text
+    name: folder_name_plugin
+    default: folder_name_plugin
+    global: True
+hooks:
+  - type: run
+    trigger: after-render
+    commands:
+      - mkdir "{{folder_name_dynamic.upper()}}"
